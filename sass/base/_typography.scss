@@ -1,0 +1,36 @@
+body {
+    font-family: "open sans", sans-serif;
+    font-size: $default-font-size;
+}
+
+.budget {
+    color: var(--color-grey);
+
+    &__value {
+        font-size: 4rem;
+    }
+
+    &__income {
+        text-transform: uppercase;
+    }
+
+    &__expense {
+        text-transform: uppercase;
+    }
+
+
+}
+
+.add * {
+    font-family: inherit;
+}
+
+.income {
+    text-transform: uppercase;
+    color: var(--color-primary-2);
+}
+
+.expense {
+    text-transform: uppercase;
+    color: var(--color-primary-1);
+}

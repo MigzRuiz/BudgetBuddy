@@ -1,0 +1,7 @@
+@mixin flex-it($display, $wrap) {
+    @if $display {display: flex;};
+    @if $wrap   {flex-wrap: wrap;};
+
+    align-content: center;
+    justify-content: center;
+}

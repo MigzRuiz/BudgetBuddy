@@ -8,31 +8,33 @@
 
     <link href="css/style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600" rel="stylesheet" type="text/css">
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <div class="top-container">
-        <div class="budget">
-            <div class="budget__title">
-                Available Budget in May 2018
-            </div>
+   <div class="background">
+   </div>
+   <div class="app-container">
+       <div class="budget">
+            <div class="budget__title">Available Budget in May 2018</div>
             <div class="budget__value"> + 69.00 </div>
-            <div class="budget__income">
-                <div class="budget__income-text">Income</div>
-                <div class="budget__right">
-                    <div class="budget__income-value">+ 400</div>
-                    <div class="budget__income-percentage">&nbsp;</div>
+
+            <div class="budget__group">
+                <div class="budget__income">
+                    <div class="budget__income-text">Income</div>
+                    <div class="budget__right">
+                        <div class="budget__income-value">+ 400</div>
+                        <div class="budget__income-percentage">&nbsp;</div>
+                    </div>
                 </div>
-            </div>
-            <div class="budget__expense">
-                <div class="budget__expense-text">Expense</div>
-                <div class="budget__right">
-                    <div class="budget__income-value">- 69</div>
-                    <div class="budget__income-percentage">&nbsp;</div>
+                <div class="budget__expense">
+                    <div class="budget__expense-text">Expense</div>
+                    <div class="budget__right">
+                        <div class="budget__income-value">- 69</div>                            
+                        <div class="budget__income-percentage">&nbsp;</div>
+                    </div>                            
                 </div>
             </div>
         </div>
-    </div>
-    <div class="bottom-container">
         <div class="add">
             <div class="add__container">
                 <select class="add__type">
@@ -41,18 +43,21 @@
                 </select>
                 <input type="text" class="add__description" placeholder="Add Description">
                 <input type="number" class="add__value" placeholder="Value">
+                <button class="add__btn"><i class="ion-ios-checkmark-outline"></i></button>
             </div>
         </div>
-        <div class="income">
-            <h2 class="income__title">Income</h2>
-            <div class="income__list">
-
+        <div class="content">
+            <div class="income">
+                <h2 class="income__title">Income</h2>
+                <div class="income__list">
+        
+                </div>
             </div>
-        </div>
-        <div class="expense">
-            <h2 class="expense__title">Expense</h2>
-            <div class="income__list">
-                
+            <div class="expense">
+                <h2 class="expense__title">Expense</h2>
+                <div class="income__list">
+                        
+                </div>
             </div>
         </div>
     </div>
