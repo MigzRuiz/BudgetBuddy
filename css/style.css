@@ -120,9 +120,9 @@ body {
   justify-content: space-around;
   margin-top: 2rem; }
   .content .income {
-    width: 30%; }
+    width: 40%; }
   .content .expense {
-    width: 30%; }
+    width: 40%; }
 
 .item {
   display: flex;
