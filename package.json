@@ -1,7 +1,7 @@
 {
-  "name": "trillo",
+  "name": "Budget",
   "version": "1.0.0",
-  "description": "Landing page for Trillo",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "watch:sass": "node-sass sass/main.scss css/style.css -w",

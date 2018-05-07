@@ -26,11 +26,15 @@ body {
 }
 
 .income {
-    text-transform: uppercase;
-    color: var(--color-primary-2);
+    &__title {
+        text-transform: uppercase;
+        color: var(--color-primary-2);
+    }
 }
 
 .expense {
-    text-transform: uppercase;
-    color: var(--color-primary-1);
+    &__title {
+        text-transform: uppercase;
+        color: var(--color-primary-1);
+    }
 }

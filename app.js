@@ -82,6 +82,20 @@ var UIController = (function(){
             };
         },
 
+        addListItem: function(obj, type){
+            var html;
+
+            //Create HTML strings with placeholder text
+            html = '<div class="item clearfix" id="income-0"><div class="item__description">Salary</div><div class="right clearfix"><div class="item__value">+ 2,100.00</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>'
+
+            '<div class="item clearfix" id="expense-0"><div class="item__description">Apartment rent</div><div class="right clearfix"><div class="item__value">- 900.00</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>'
+
+
+            //replace the placeholder text with actual data
+
+            //insert the HTML to the DOM
+        },
+
         getDOMstrings: function(){
             return DOMStrings;
         }
@@ -111,12 +125,13 @@ var controller = (function(budgetCtrl, UICtrl){
 
         //1.) Get input fields (type, description, value)
         input = UICtrl.getInput();
-        console.log(input);
 
         //2.) Assign that data to internal data structure (budget controller)
         newItem = budgetCtrl.addItem(input.type, input.description, input.value);
 
         //3.) Display those data (ui controller)
+
+        console.log(newItem);
 
         //4.) Calculate Budget
 
