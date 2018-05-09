@@ -105,10 +105,10 @@
     flex-wrap: wrap;
     padding: 1.4rem;
     border-bottom: 1px #e7e7e7 solid;
-    transition: transform .3s;
+    //transition: transform .3s;
 
     & * {
-        transition: transform .3s;        
+        transition: transform .5s;        
     }
 
     &:first-child {

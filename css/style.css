@@ -128,10 +128,9 @@ body {
   display: flex;
   flex-wrap: wrap;
   padding: 1.4rem;
-  border-bottom: 1px #e7e7e7 solid;
-  transition: transform .3s; }
+  border-bottom: 1px #e7e7e7 solid; }
   .item * {
-    transition: transform .3s; }
+    transition: transform .5s; }
   .item:first-child {
     border-top: 1px #e7e7e7 solid; }
   .item:nth-child(even) {
