@@ -19,8 +19,8 @@ var budgetController = (function(){
     };
 
     //Expense prototype for getting the calculated percentage
-    Expense.prototype.calcPercentage = function(){
-        return this.calcPercentage;
+    Expense.prototype.getPercentage = function(){
+        return this.percentage;
     };
 
     var Income = function(id, description, value) {
@@ -97,7 +97,6 @@ var budgetController = (function(){
             if (index !== -1) {
                 data.allItems[type].splice(index, 1);
             }
-
         },
 
         calculateBudget: function(){
@@ -114,7 +113,6 @@ var budgetController = (function(){
             } else {
                 data.percentage = -1;
             }
-
         },
 
         calculatePercentages: function(){
@@ -126,15 +124,14 @@ var budgetController = (function(){
 
                 Total is 100
             */
-           data.allItems.exp.forEach(function(currentValue){
-               currentValue.calcPercentage();
-           });
-
+            data.allItems.exp.forEach(function(currentValue){
+               currentValue.calcPercentage(data.total.inc);
+            });
         },
         
         getPercentages: function() {
             var allPerc = data.allItems.exp.map(function(currentValue){
-                return currentValue.getPercentages();
+                return currentValue.getPercentage();
             });
 
             return allPerc;
@@ -150,10 +147,9 @@ var budgetController = (function(){
         },
 
         testing: function(){
-            console.log(data.allItems);
+            //console.log(data.allItems);
         }
     }
-
 })();
 
 
@@ -281,11 +277,10 @@ var controller = (function(budgetCtrl, UICtrl){
         budgetCtrl.calculatePercentages();
 
         //2.) Return that percentage
-        var percentages = budgetCtrl.getPercentages();
-
-        console.log(percentages);   
+        var percentages = budgetCtrl.getPercentages(); 
 
         //3.) Display percentage
+        console.log(percentages);
     };
 
     var ctrlAddItem = function() {
