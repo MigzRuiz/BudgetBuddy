@@ -80,6 +80,26 @@ var budgetController = (function(){
             return newItem;
         },
 
+        deleteItem: function(type, id){
+            //Checked which part of the array it is.
+            //inc: [1,2,3,4]
+            var ids, index;
+
+            //Map all the ids on either inc or exp
+            ids = data.allItems[type].map(function(currentValue){
+                return currentValue.id;
+            });
+
+            //Check the index of the id
+            index = ids.indexOf(id);
+
+            //Delete that index using splice. Only delete if index !== -1
+            if (index !== -1) {
+                data.allItems[type].splice(index, 1);
+            }
+
+        },
+
         calculateBudget: function(){
             //calculate total income and expense
             calculateTotal('inc');
@@ -130,7 +150,7 @@ var budgetController = (function(){
         },
 
         testing: function(){
-            //console.log(data.total.inc - data.total.exp);
+            console.log(data.allItems);
         }
     }
 
@@ -184,6 +204,13 @@ var UIController = (function(){
 
             // Insert the HTML into the DOM
             document.querySelector(element).insertAdjacentHTML('beforeend', newHtml);
+        },
+        
+        deleteListItem: function(selectorID){
+            //We are gonna delete using the selector ID either inc-x or exp-x
+            //But this only works for child items so I have to use the parentNode to move up
+            var el = document.getElementById(selectorID);
+            el.parentNode.removeChild(el);
         },
 
         clearFields: function() {
@@ -251,7 +278,7 @@ var controller = (function(budgetCtrl, UICtrl){
 
     var updatePercentages = function(){
         //1.) Calculate the percentages
-        budgetCtrl.calculatePercentage();
+        budgetCtrl.calculatePercentages();
 
         //2.) Return that percentage
         var percentages = budgetCtrl.getPercentages();
@@ -292,15 +319,18 @@ var controller = (function(budgetCtrl, UICtrl){
         itemID = event.target.parentNode.parentNode.parentNode.parentNode.id;
         //If there is an ID
         if (itemID) {
-            splitID.itemID.splitID("-");
+            splitID = itemID.split("-");
             type = splitID[0];
-            ID = splitID[1];
+            ID = parseInt(splitID[1]);
 
             //remove the item in the data structure
+            budgetCtrl.deleteItem(type, ID);
 
             //remove the item in the display
+            UICtrl.deleteListItem(itemID);
 
             //update the new total/budget
+            updateBudget();
         }
     }
 
