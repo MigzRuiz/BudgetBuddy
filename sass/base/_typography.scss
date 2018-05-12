@@ -28,13 +28,13 @@ body {
 .income {
     &__title {
         text-transform: uppercase;
-        color: var(--color-primary-2);
+        color: var(--color-purple);
     }
 }
 
 .expense {
     &__title {
         text-transform: uppercase;
-        color: var(--color-primary-1);
+        color: var(--color-pink);
     }
 }

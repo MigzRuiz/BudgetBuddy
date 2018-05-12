@@ -1,23 +1,27 @@
 :root {
     //COLORS
-    --color-primary-1: #f366a3;
-    --color-primary-2: #736cfa;
+    --color-pink: #f366a3;
+    --color-pink-dark: #f55699;
 
-    --color-gradient2-1: #f55699;
-    --color-gradient2-2: #f67d5a;
-
+    --color-purple: #736cfa;
     --color-purple-dark: #252a41;
 
+    --color-orange: #f67d5a;
+
     --color-grey: #f7f7f7;
+    --color-grey-2: #e7e7e7;
     --color-white: #fff;
 
     --shadow-dark: 0 2rem 6rem rgba(0,0,0, .9);
+
+    /*
+        Gradients
+        color-pink + color-purple
+        color-orange + color-pink-dark
+    */
 }
-/*
-//COLORS
-$color-primary-1: #5ee7df;
-$color-primary-2: #b490ca;
-*/
+
 
 $default-font-size: 1.6rem;
+$color-orange: #f67d5a;
 

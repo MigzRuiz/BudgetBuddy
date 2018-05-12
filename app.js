@@ -167,7 +167,8 @@ var UIController = (function(){
         incomeLabel: ".budget__income-value",
         expenseLabel: ".budget__expense-value",
         percentageLabel: ".budget__expense-percentage",
-        content: ".content"
+        content: ".content",
+        expensePercLabel: ".item__percentage"
     }
 
     return {
@@ -190,7 +191,7 @@ var UIController = (function(){
             } else if(type === "exp"){
                 element = DOMStrings.expensesContainer;
 
-                html = '<div class="item clearfix" id="exp-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">%percentage%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+                html = '<div class="item clearfix" id="exp-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="right-item item__value">%value%</div><div class="item__percentage">%percentage%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
             }
 
             //Replace the placeholder text with actual data
@@ -233,6 +234,24 @@ var UIController = (function(){
             } else {
                 document.querySelector(DOMStrings.percentageLabel).textContent = "---";
             }
+        },
+
+        displayPercentage: function(percentages){
+            var fields = document.querySelectorAll(DOMStrings.expensePercLabel);
+
+            var nodeListForEach = function(list, callback) {
+                for (var i = 0; i < list.length; i++) {
+                    callback(list[i],i);
+                }
+            }
+
+            nodeListForEach(fields, function(current, index){
+                if (percentages[index] > 0 ){
+                    current.textContent = percentages[index] + "%";
+                } else {
+                    current.textContent = "---";
+                }
+            });
         },
 
         getDOMstrings: function() {
@@ -280,7 +299,7 @@ var controller = (function(budgetCtrl, UICtrl){
         var percentages = budgetCtrl.getPercentages(); 
 
         //3.) Display percentage
-        console.log(percentages);
+        UICtrl.displayPercentage(percentages);
     };
 
     var ctrlAddItem = function() {
