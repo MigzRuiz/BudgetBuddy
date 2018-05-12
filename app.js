@@ -170,7 +170,10 @@ var UIController = (function(){
         },
 
         deleteListItem: function(selectorID) {
-            //We want to re
+            //We want to remove the whole item in the list. (inc-0 or inc-x)
+            //We need to use the parentNode because the removeChild only works from the parent element
+            var el = document.getElementById(selectorID);
+            el.parentNode.removeChild(el);
 
         },
 
@@ -227,7 +230,7 @@ var controller = (function(budgetCtrl, UICtrl){
         document.querySelector(DOM.content).addEventListener("click", ctrlDeleteItem);
     }
     
-    var updateBudget = function(obj, type){
+    var updateBudget = function(){
         //1.) Calculate Budget
         budgetCtrl.calculateBudget();
 
@@ -255,7 +258,7 @@ var controller = (function(budgetCtrl, UICtrl){
             UICtrl.clearFields();
 
             //5.)  Calculate and Update the Budget
-            updateBudget(newItem, input.type);
+            updateBudget();
         }
     }
 
@@ -275,8 +278,10 @@ var controller = (function(budgetCtrl, UICtrl){
             budgetCtrl.deleteItem(type, ID);
             
             //remove the item in the display
+            UICtrl.deleteListItem(itemID);
 
             //update the new total/budget
+            updateBudget();
         }
     }
 
