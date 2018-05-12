@@ -1,5 +1,3 @@
-import { O_EXCL } from "constants";
-
 //BUDGET CONTROLLER
 var budgetController = (function(){
 
@@ -67,7 +65,6 @@ var budgetController = (function(){
             } else {
                 ID = 0;
             }
-
 
             // Create new item based on type ("exp" or "inc")
             if (type === "exp") {
@@ -229,8 +226,7 @@ var controller = (function(budgetCtrl, UICtrl){
         var DOM = UICtrl.getDOMstrings();
 
         //When button is clicked 
-        document.querySelector(DOM.inputBtn).addEventListener("click", ctrlAddItem);
-
+        document.querySelector(DOM.inputBtn).addEventListener("click", ctrlAddItem)
         //When enter is pressed
         document.addEventListener("keypress", function(event){
             if (event.keyCode === 13 || event.which === 13) {
@@ -302,7 +298,6 @@ var controller = (function(budgetCtrl, UICtrl){
 
             //remove the item in the data structure
 
-            
             //remove the item in the display
 
             //update the new total/budget
