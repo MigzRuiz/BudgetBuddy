@@ -70,8 +70,6 @@ body {
   .budget__group {
     display: flex;
     justify-content: space-around; }
-  .budget__income {
-    width: 10rem; }
 
 .add {
   padding: 2rem;
@@ -161,7 +159,5 @@ body {
 
 .right {
   display: flex; }
-  .right-inc {
-    background-image: linear-gradient(to right bottom, #b745f0, #6f67fd); }
   .right-item:not(:last-child) {
     margin-right: 1.2rem; }

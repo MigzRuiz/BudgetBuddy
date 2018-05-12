@@ -83,25 +83,6 @@ var budgetController = (function(){
             return newItem;
         },
 
-        deleteItem: function(type, id){
-            //Based on the type, it will remove the element which the ID is tied to.
-            //type = inc then id = 1
-            //given inc:[0 1 2 3 4]
-            var ids, index;
-
-            //Create a new map of the ids on either type
-            ids = data.allItems[type].map(function(current){
-                return current.id;
-            });
-            //Get the index of that id that was passed in the deleteItem function
-            index = ids.indexOf(id);
-            //We'll only run it if it's greater than -1
-            if( index !== -1 ){
-                data.allItems[type].splice(index, 1);
-            }
-
-        },
-
         calculateBudget: function(){
             //calculate total income and expense
             calculateTotal('inc');
@@ -152,7 +133,7 @@ var budgetController = (function(){
         },
 
         testing: function(){
-            console.log(data);
+            //console.log(data.total.inc - data.total.exp);
         }
     }
 
@@ -206,11 +187,6 @@ var UIController = (function(){
 
             // Insert the HTML into the DOM
             document.querySelector(element).insertAdjacentHTML('beforeend', newHtml);
-        },
-
-        deleteListItem: function(selectorID) {
-            //We want to re
-
         },
 
         clearFields: function() {
@@ -317,16 +293,15 @@ var controller = (function(budgetCtrl, UICtrl){
     var ctrlDeleteItem = function(event) {
         var itemID, splitID, type, ID;
 
-        //Will get the target ID
         itemID = event.target.parentNode.parentNode.parentNode.parentNode.id;
         //If there is an ID
         if (itemID) {
-            splitID = itemID.split("-");
+            splitID.itemID.splitID("-");
             type = splitID[0];
-            ID = parseInt(splitID[1]);
+            ID = splitID[1];
 
             //remove the item in the data structure
-            budgetCtrl.deleteItem(type, ID);
+
             
             //remove the item in the display
 
