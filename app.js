@@ -190,6 +190,12 @@ var UIController = (function(){
         return (type === "exp" ? "- " : "+ ") + int + "." + dec;
     };
 
+    var nodeListForEach = function(list, callback) {
+        for (var i = 0; i < list.length; i++) {
+            callback(list[i],i);
+        }
+    };
+
     return {
         getInput: function(){
             return {
@@ -261,12 +267,6 @@ var UIController = (function(){
         displayPercentage: function(percentages){
             var fields = document.querySelectorAll(DOMStrings.expensePercLabel);
 
-            var nodeListForEach = function(list, callback) {
-                for (var i = 0; i < list.length; i++) {
-                    callback(list[i],i);
-                }
-            }
-
             nodeListForEach(fields, function(current, index){
                 if (percentages[index] > 0 ){
                     current.textContent = percentages[index] + "%";
@@ -284,6 +284,21 @@ var UIController = (function(){
             month = now.toLocaleDateString("en-US", {month: 'long'});
 
             document.querySelector(DOMStrings.dateLabel).textContent = month + " " + year;
+        },
+
+        changedType: function(){
+
+            //You want to make it a string so you can loop on each of them then add the pink style
+            var fields = document.querySelectorAll(
+                DOMStrings.inputType + "," + 
+                DOMStrings.inputDescription + "," + 
+                DOMStrings.inputValue);
+
+            nodeListForEach(fields, function(currentValue){
+                currentValue.classList.toggle("pink-focus");
+            });
+
+           document.querySelector(DOMStrings.inputBtn).classList.toggle("pink");
         },
 
         getDOMstrings: function() {
@@ -311,7 +326,8 @@ var controller = (function(budgetCtrl, UICtrl){
         //Delete item
         document.querySelector(DOM.content).addEventListener("click", ctrlDeleteItem);
 
-        
+        //When type is changed
+        document.querySelector(DOM.inputType).addEventListener("change", UICtrl.changedType);
     }
     
     var updateBudget = function(obj, type){

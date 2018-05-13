@@ -51,8 +51,14 @@ body {
   text-transform: uppercase;
   color: var(--color-purple); }
 
+.income-value {
+  color: var(--color-purple); }
+
 .expense__title {
   text-transform: uppercase;
+  color: var(--color-pink); }
+
+.expense-value {
   color: var(--color-pink); }
 
 .app-container {
@@ -62,7 +68,8 @@ body {
   border-radius: 3.5rem;
   box-shadow: var(--shadow-dark);
   background-color: var(--color-white);
-  overflow: hidden; }
+  overflow: hidden;
+  position: relative; }
 
 .budget {
   background-image: linear-gradient(to right, var(--color-pink-dark), var(--color-orange));
@@ -82,35 +89,39 @@ body {
     height: 4rem;
     padding: 1rem;
     border: 1px solid var(--color-grey-2);
-    margin-right: 2rem; }
+    margin-right: 2rem;
+    transition: border 0.3s; }
     .add__type:focus {
       outline: none;
-      border: 1px var(--color-primary-2) solid; }
+      border: 1px var(--color-purple) solid; }
   .add__description {
     height: 4rem;
     padding: 1rem;
     border: 1px solid var(--color-grey-2);
     border-radius: .4rem;
-    margin-right: 2rem; }
+    margin-right: 2rem;
+    transition: border 0.3s; }
     .add__description:focus {
       outline: none;
-      border: 1px var(--color-primary-2) solid; }
+      border: 1px var(--color-purple) solid; }
   .add__value {
     height: 4rem;
-    width: 7rem;
+    width: 8rem;
     padding: 1rem;
     border: 1px solid var(--color-grey-2);
     border-radius: .4rem;
-    margin-right: 2rem; }
+    margin-right: 2rem;
+    transition: border 0.3s; }
     .add__value:focus {
       outline: none;
-      border: 1px var(--color-primary-2) solid; }
+      border: 1px solid var(--color-purple); }
   .add__btn {
     font-size: 3.5rem;
     background: none;
     border: none;
     vertical-align: middle;
-    cursor: pointer; }
+    cursor: pointer;
+    color: var(--color-purple); }
     .add__btn:active {
       transform: translateY(2px); }
     .add__btn:focus {
@@ -119,7 +130,8 @@ body {
 .content {
   display: flex;
   justify-content: space-around;
-  margin-top: 2rem; }
+  margin-top: 2rem;
+  padding-bottom: 2rem; }
   .content .income {
     width: 40%; }
   .content .expense {
@@ -170,3 +182,9 @@ body {
   display: flex; }
   .right-item:not(:last-child) {
     margin-right: 1.2rem; }
+
+.pink {
+  color: var(--color-pink-dark); }
+
+.pink-focus:focus {
+  border: 1px solid var(--color-pink-dark); }

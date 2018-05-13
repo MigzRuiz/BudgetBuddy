@@ -9,6 +9,8 @@
     background-color: var(--color-white);
 
     overflow: hidden;
+
+    position: relative;
 }
 
 .budget {
@@ -29,7 +31,6 @@
     display: flex;
     justify-content: space-around;
 
-
     &__type {
         height: 4rem;
         padding: 1rem;
@@ -39,8 +40,9 @@
 
         &:focus {
             outline: none;
-            border: 1px var(--color-primary-2) solid;
+            border: 1px var(--color-purple) solid;
         }
+        transition: border 0.3s;
     }
 
     &__description {
@@ -54,13 +56,14 @@
         
         &:focus {
             outline: none;
-            border: 1px var(--color-primary-2) solid;
+            border: 1px var(--color-purple) solid;
         }
+        transition: border 0.3s;
     }
 
     &__value {
         height: 4rem;
-        width: 7rem;
+        width: 8rem;
 
         padding: 1rem;
         border: 1px solid var(--color-grey-2);
@@ -69,8 +72,9 @@
 
         &:focus {
             outline: none;
-            border: 1px var(--color-primary-2) solid;
+            border: 1px solid var(--color-purple);
         }
+        transition: border 0.3s;
     }
 
     &__btn {
@@ -79,6 +83,7 @@
         border: none;
         vertical-align: middle;
         cursor: pointer;
+        color: var(--color-purple);
 
         &:active { transform: translateY(2px); }
 
@@ -97,6 +102,7 @@
     .expense {
         width: 40%;
     }
+    padding-bottom: 2rem;
 }
 
 .item {
@@ -166,3 +172,6 @@
         margin-right: 1.2rem;
     }   
 } 
+
+.pink {color: var(--color-pink-dark);};
+.pink-focus:focus {border: 1px solid var(--color-pink-dark);};
